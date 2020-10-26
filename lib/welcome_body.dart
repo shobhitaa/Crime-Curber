@@ -9,15 +9,60 @@ class WelcomeBody extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Background(child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[Text("CRIME CURBER",
-      style: TextStyle(fontWeight: FontWeight.bold),
+
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+          Text("CRIME ",
+        style: TextStyle(
+          fontFamily: 'OpenSans',
+          fontSize: 32,
+          color: const Color(0xba101010),
+        ),
+
       ),
-      FlatButton(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-          color: kPrimaryColor,
-          onPressed: () {}, child: Text("Sign in with Google"),
-          textColor: Colors.white,
-      )
+      Text("CURBER",
+        style: TextStyle(
+          fontFamily: 'RedHatDisplay',
+          fontSize: 46,
+          color: const Color(0xff000000),
+          fontWeight: FontWeight.w700,
+        ),
+      )],
+      ),
+      SizedBox(height: size.height * 0.55),
+        SizedBox(
+          width: 250,
+          height: 50,
+          child: FlatButton(
+            child: Row(
+              children: [
+                Image.asset(
+                "assets/icons/google_icon.png",
+                width: 30.0,
+                height: 30.0,
+              ),
+                Text(
+                  "Continue with Google",
+                  style: TextStyle(
+                      fontSize: 16.0,
+                      fontFamily: 'OpenSans',
+                      fontWeight: FontWeight.bold,
+                  ),
+                )
+              ],
+            ),
+            onPressed: () {},
+            textColor: dark_charcoal,
+            color: light_gray,
+            shape: OutlineInputBorder(
+                borderSide: BorderSide(
+                    style: BorderStyle.solid, width: 0.4, color: dark_charcoal),
+                borderRadius: new BorderRadius.circular(30.0)),
+          ),
+        ),
       ],
     )
     );
