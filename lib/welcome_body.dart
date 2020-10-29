@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:crime_curber/welcome_bg.dart';
 import 'package:crime_curber/terms.dart';
 import 'package:crime_curber/privacy.dart';
+import 'package:crime_curber/main_screen.dart';
+
 
 class WelcomeBody extends StatelessWidget {
   @override
@@ -58,7 +60,10 @@ class WelcomeBody extends StatelessWidget {
                 )
               ],
             ),
-            onPressed: () {},
+            onPressed: () {Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {
+              return MainView();
+            }),
+                    (Route<dynamic> route) => false);},
             textColor: dark_charcoal,
             color: light_gray,
             shape: OutlineInputBorder(

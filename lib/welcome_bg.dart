@@ -24,14 +24,6 @@ class Background extends StatelessWidget {
           fit: BoxFit.fill,
         ),
         ),
-            // Positioned(
-            //   top: 0,
-            //   left: 0,
-            //   child: Image.asset(
-            //     "assets/images/red_circle1.png",
-            //     width: size.width * 0.3,
-            //   ),
-            // ),
             child,
           ],
         )
