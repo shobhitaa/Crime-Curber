@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:crime_curber/constants.dart';
 import 'package:crime_curber/police.dart';
 import 'package:crime_curber/hospital.dart';
+import 'package:crime_curber/help.dart';
 
 class MainView extends StatefulWidget {
   @override
@@ -268,7 +269,9 @@ class _MainViewState extends State<MainView> {
                           primary: Colors.white,
                           elevation: 7
                       ),
-                      onPressed: () {},
+                      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return HelpBody();
+                      }));},
                       child: Container(
                           width: 63,
                           height: 63,
