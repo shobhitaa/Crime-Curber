@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:crime_curber/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:maps_launcher/maps_launcher.dart';  
 
 class HospitalBody extends StatefulWidget {
   @override
@@ -7,6 +9,13 @@ class HospitalBody extends StatefulWidget {
 }
 
 class _HospitalBodyState extends State<HospitalBody> {
+      void customLaunch(command) async {
+    if (await canLaunch(command)) {
+      await launch(command);
+    } else {
+      print(' could not launch $command');
+    }
+  }
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -24,7 +33,10 @@ class _HospitalBodyState extends State<HospitalBody> {
             Container(
               width: 250,
               height: 60,
-              child: ElevatedButton(onPressed: () {},
+              child: ElevatedButton(
+                onPressed: () {
+                customLaunch('tel:102');
+              },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(30.0)
@@ -36,7 +48,9 @@ class _HospitalBodyState extends State<HospitalBody> {
             Container(
               width: 250,
               height: 60,
-              child: ElevatedButton(onPressed: () {},
+              child: ElevatedButton(
+                onPressed: () => MapsLauncher.launchQuery(
+                    'Hospital'),
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(30.0)
