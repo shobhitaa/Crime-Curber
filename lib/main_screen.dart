@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:crime_curber/constants.dart';
+import 'package:crime_curber/police.dart';
+import 'package:crime_curber/hospital.dart';
 
 class MainView extends StatefulWidget {
   @override
@@ -63,22 +65,27 @@ class _MainViewState extends State<MainView> {
                     Container(
                       height: 100,
                       width: 110,
-                      child: Card(
-                          color: Colors.white,
-                          elevation: 8,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[Image.asset("assets/images/hospital.png",
-                            width: 40,
-                            height: 40),
-                              Text("Hospital",
-                                  style: TextStyle(
-                                      color: card_gray,
-                                      fontFamily: "OpenSans",
-                                      fontSize: 13
-                                  ))],
-                          )),
+                      child: GestureDetector(
+                        onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return HospitalBody();
+                        }));},
+                        child: Card(
+                            color: Colors.white,
+                            elevation: 8,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[Image.asset("assets/images/hospital.png",
+                              width: 40,
+                              height: 40),
+                                Text("Hospital",
+                                    style: TextStyle(
+                                        color: card_gray,
+                                        fontFamily: "OpenSans",
+                                        fontSize: 13
+                                    ))],
+                            )),
+                      ),
                     ),
                     Container(
                       height: 100,
@@ -107,22 +114,28 @@ class _MainViewState extends State<MainView> {
                     Container(
                       height: 100,
                       width: 110,
-                      child: Card(
-                          color: Colors.white,
-                          elevation: 8,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[Image.asset("assets/images/police.png",
-                                width: 40,
-                                height: 40),
-                              Text("Police",
-                                  style: TextStyle(
-                                      color: card_gray,
-                                      fontFamily: "OpenSans",
-                                      fontSize: 13
-                                  ))],
-                          )),
+                      child: GestureDetector(
+                        onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return PoliceBody();
+                        }));
+                        },
+                        child: Card(
+                            color: Colors.white,
+                            elevation: 8,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[Image.asset("assets/images/police.png",
+                                  width: 40,
+                                  height: 40),
+                                Text("Police",
+                                    style: TextStyle(
+                                        color: card_gray,
+                                        fontFamily: "OpenSans",
+                                        fontSize: 13
+                                    ))],
+                            )),
+                      ),
                     ),
                     Container(
                       height: 100,
