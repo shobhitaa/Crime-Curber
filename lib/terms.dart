@@ -1,9 +1,7 @@
 import 'package:crime_curber/constants.dart';
 import 'package:flutter/material.dart';
 
-void _TermsOfService(BuildContext context) {
-  Navigator.of(context).push(MaterialPageRoute(builder: (context) => Terms()));
-}
+
 
 class Terms extends StatelessWidget {
   @override

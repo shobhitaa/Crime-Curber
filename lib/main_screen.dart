@@ -34,6 +34,7 @@ class _MainViewState extends State<MainView> {
                       fontWeight: FontWeight.bold
                   ),
                 ),
+                ElevatedButton(onPressed: () {}, child: Text("Sign Out"))
               ],
             ),
             SizedBox(height: size.height * 0.066),
