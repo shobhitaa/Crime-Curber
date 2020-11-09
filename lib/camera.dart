@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:crime_curber/constants.dart';
 
 import 'package:camera/camera.dart';
+import 'package:crime_curber/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:video_player/video_player.dart';
@@ -74,7 +76,24 @@ class _CameraExampleHomeState extends State<CameraExampleHome>
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: const Text('Camera example'),
+        backgroundColor: light_gray_bg,
+        title: const Text('Camera',
+        style: TextStyle(
+          fontFamily: "OpenSans",
+          fontWeight: FontWeight.bold
+        )),
+        actions: <Widget>[
+          Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: Icon(
+                    Icons.help_outline,
+                  size: 35,
+                ),
+              )
+          ),
+        ],
       ),
       body: Column(
         children: <Widget>[
@@ -87,11 +106,11 @@ class _CameraExampleHomeState extends State<CameraExampleHome>
                 ),
               ),
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: dark_charcoal,
                 border: Border.all(
                   color: controller != null && controller.value.isRecordingVideo
                       ? Colors.redAccent
-                      : Colors.grey,
+                      : dark_charcoal,
                   width: 3.0,
                 ),
               ),
@@ -118,9 +137,10 @@ class _CameraExampleHomeState extends State<CameraExampleHome>
   Widget _cameraPreviewWidget() {
     if (controller == null || !controller.value.isInitialized) {
       return const Text(
-        'Tap a camera',
+        'Select a camera',
         style: TextStyle(
           color: Colors.white,
+          fontFamily: "OpenSans",
           fontSize: 24.0,
           fontWeight: FontWeight.w900,
         ),
@@ -139,7 +159,10 @@ class _CameraExampleHomeState extends State<CameraExampleHome>
       padding: const EdgeInsets.only(left: 25),
       child: Row(
         children: <Widget>[
-          const Text('Enable Audio:'),
+          const Text('Enable Audio:',
+          style: TextStyle(
+            fontFamily: 'OpenSans',
+          )),
           Switch(
             value: enableAudio,
             onChanged: (bool value) {
@@ -214,7 +237,7 @@ class _CameraExampleHomeState extends State<CameraExampleHome>
         ),
         IconButton(
           icon: controller != null && controller.value.isRecordingPaused
-              ? Icon(Icons.play_arrow)
+              ? Icon(Icons.play_arrow,  color: Colors.green)
               : Icon(Icons.pause),
           color: Colors.blue,
           onPressed: controller != null &&
