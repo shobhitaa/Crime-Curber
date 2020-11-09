@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:crime_curber/constants.dart';
 import 'package:crime_curber/police.dart';
 import 'package:crime_curber/hospital.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:crime_curber/login.dart';
+import 'package:crime_curber/camera.dart';
 
 class MainView extends StatefulWidget {
+  
   @override
   _MainViewState createState() => _MainViewState();
 }
 
 class _MainViewState extends State<MainView> {
+  final auth = FirebaseAuth.instance;
   //bool _hasBeenPressed = false;
   @override
   Widget build(BuildContext context) {
@@ -33,6 +38,10 @@ class _MainViewState extends State<MainView> {
                       fontWeight: FontWeight.bold
                   ),
                 ),
+                ElevatedButton(onPressed: () {
+                  auth.signOut();
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LoginScreen()));
+                }, child: Text("Sign Out"))
               ],
             ),
             SizedBox(height: size.height * 0.066),
@@ -42,6 +51,10 @@ class _MainViewState extends State<MainView> {
                 Container(
                   height: 200,
                   width: 120,
+                  child: GestureDetector(
+                    onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return CameraExampleHome();
+                        }));},
                   child: Card(
                       color: Colors.white,
                       elevation: 8,
@@ -59,6 +72,7 @@ class _MainViewState extends State<MainView> {
                             fontSize: 17
                           ))],
                       )),
+                  ),
                 ),
                 Column(
                   children: <Widget>[

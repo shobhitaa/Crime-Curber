@@ -33,7 +33,14 @@ dependencies:
   maps_launcher: ^1.2.2+2
   camera:
   path_provider:
+  video_player:
+  gallery_saver:
   path:
+  geolocator:
+  google_sign_in:
+  firebase_auth:
+  cloud_firestore: 
+  firebase_core: 
 
 dev_dependencies:
   flutter_test:
