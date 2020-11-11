@@ -1,4 +1,3 @@
-import 'package:crime_curber/constants.dart';
 import 'package:flutter/material.dart';
 
 void _TermsOfService(BuildContext context) {

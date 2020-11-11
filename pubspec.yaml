@@ -41,7 +41,10 @@ dependencies:
   firebase_auth:
   cloud_firestore: 
   firebase_core: 
-
+  thumbnails:
+    git:
+      url: https://github.com/divyanshub024/Flutter_Thumbnails.git
+  esys_flutter_share: 
 dev_dependencies:
   flutter_test:
     sdk: flutter

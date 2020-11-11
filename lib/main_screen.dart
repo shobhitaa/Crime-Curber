@@ -1,10 +1,9 @@
+import 'package:crime_curber/Camera/camera_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:crime_curber/constants.dart';
 import 'package:crime_curber/police.dart';
 import 'package:crime_curber/hospital.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:crime_curber/login.dart';
-import 'package:crime_curber/camera.dart';
 
 class MainView extends StatefulWidget {
   
@@ -38,10 +37,6 @@ class _MainViewState extends State<MainView> {
                       fontWeight: FontWeight.bold
                   ),
                 ),
-                ElevatedButton(onPressed: () {
-                  auth.signOut();
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LoginScreen()));
-                }, child: Text("Sign Out"))
               ],
             ),
             SizedBox(height: size.height * 0.066),
@@ -53,7 +48,7 @@ class _MainViewState extends State<MainView> {
                   width: 120,
                   child: GestureDetector(
                     onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return CameraExampleHome();
+                      return CameraScreen();
                         }));},
                   child: Card(
                       color: Colors.white,
@@ -221,7 +216,9 @@ class _MainViewState extends State<MainView> {
                           primary: Colors.white,
                           elevation: 7
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        
+                      },
                       child: Container(
                           width: 63,
                           height: 63,
@@ -251,7 +248,9 @@ class _MainViewState extends State<MainView> {
                         primary: Colors.white,
                         elevation: 7
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      
+                    },
                     child: Container(
                         width: 63,
                         height: 63,

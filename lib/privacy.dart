@@ -1,4 +1,3 @@
-import 'package:crime_curber/constants.dart';
 import 'package:flutter/material.dart';
 
 void _PrivacyPolicy(BuildContext context) {

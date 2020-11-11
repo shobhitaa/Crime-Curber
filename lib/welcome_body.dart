@@ -1,5 +1,5 @@
 import 'package:crime_curber/constants.dart';
-import 'package:crime_curber/signup.dart';
+// import 'package:crime_curber/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:crime_curber/welcome_bg.dart';
 import 'package:crime_curber/terms.dart';
@@ -44,9 +44,7 @@ class WelcomeBody extends StatelessWidget {
       return LoginScreen();
     }));}, child:
         Text("Login")),
-        ElevatedButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return SignupBody();
-        }));}, child:
+        ElevatedButton(onPressed: () {}, child:
         Text("Sign Up")),
         SizedBox(
           width: 250,
