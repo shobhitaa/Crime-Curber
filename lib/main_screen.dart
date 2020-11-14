@@ -1,11 +1,17 @@
 import 'package:crime_curber/Camera/camera_screen.dart';
+import 'package:crime_curber/Contacts/addContacts.dart';
+import 'package:crime_curber/SOS/sos.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:crime_curber/constants.dart';
 import 'package:crime_curber/police.dart';
 import 'package:crime_curber/hospital.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:sms_maintained/contact.dart';
 
 class MainView extends StatefulWidget {
+  final FirebaseUser user;
+  MainView({this.user});
   
   @override
   _MainViewState createState() => _MainViewState();
@@ -13,6 +19,7 @@ class MainView extends StatefulWidget {
 
 class _MainViewState extends State<MainView> {
   final auth = FirebaseAuth.instance;
+  FirebaseUser user;
   //bool _hasBeenPressed = false;
   @override
   Widget build(BuildContext context) {
@@ -182,9 +189,8 @@ class _MainViewState extends State<MainView> {
                   elevation: 7
               ),
               onPressed: () {
-                //setState(() {
-                  //_hasBeenPressed = !_hasBeenPressed;
-                //});
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SOS(user: widget.user))
+                );
               },
               child: Container(
                 width: 185,
@@ -217,8 +223,9 @@ class _MainViewState extends State<MainView> {
                           elevation: 7
                       ),
                       onPressed: () {
-                        
-                      },
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => AddContacts(user: widget.user))
+                        );
+                        },
                       child: Container(
                           width: 63,
                           height: 63,

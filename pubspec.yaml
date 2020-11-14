@@ -36,15 +36,25 @@ dependencies:
   video_player:
   gallery_saver:
   path:
-  geolocator:
-  google_sign_in:
-  firebase_auth:
   cloud_firestore: 
+  splashscreen: ^1.2.0
+  firebase_auth: ^0.14.0+5
+  toast: ^0.1.5
+  contacts_service: ^0.3.10
+  permission_handler: ^3.0.0 
+  firebase_database: ^3.1.3
   firebase_core: 
+  google_fonts: ^0.3.10
+  google_maps_flutter: ^0.5.11+1
+  geolocator: ^5.1.1
+  sms_maintained: ^0.2.5
+  geocoder: ^0.2.1
+  location: ^2.3.5
   thumbnails:
     git:
       url: https://github.com/divyanshub024/Flutter_Thumbnails.git
   esys_flutter_share: 
+  firebase_storage: ^3.0.3  
 dev_dependencies:
   flutter_test:
     sdk: flutter

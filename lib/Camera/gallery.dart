@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:esys_flutter_share/esys_flutter_share.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:crime_curber/Camera/video_preview.dart';
 import 'package:path/path.dart' as path;
@@ -13,6 +14,7 @@ class Gallery extends StatefulWidget {
 
 class _GalleryState extends State<Gallery> {
   String currentFilePath;
+  String _uploadedFileURL; 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,6 +83,19 @@ class _GalleryState extends State<Gallery> {
       (extension == '.jpeg') ? 'image/jpeg' : '	video/mp4',
     );
   }
+//   Future uploadFile() async {    
+//    StorageReference storageReference = FirebaseStorage.instance    
+//        .ref()    
+//        .child('chats/${Path.basename(_image.path)}}');    
+//    StorageUploadTask uploadTask = storageReference.putFile(_image);    
+//    await uploadTask.onComplete;    
+//    print('File Uploaded');    
+//    storageReference.getDownloadURL().then((fileURL) {    
+//      setState(() {    
+//        _uploadedFileURL = fileURL;    
+//      });    
+//    });    
+//  }  
 
   Future<List<FileSystemEntity>> _getAllImages() async {
     final Directory extDir = await getApplicationDocumentsDirectory();

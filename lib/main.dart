@@ -1,3 +1,4 @@
+import 'package:crime_curber/Login/AuthCheck.dart';
 import 'package:flutter/material.dart';
 import 'package:crime_curber/welcome_screen.dart';
 import 'package:camera/camera.dart';
@@ -7,7 +8,7 @@ List<CameraDescription> cameras;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
   cameras = await availableCameras();
   runApp(MyApp());
 }
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WelcomeScreen(),
+      home: AuthCheck(),
     );
   }
 }
