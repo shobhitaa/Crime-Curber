@@ -1,10 +1,13 @@
 import 'package:crime_curber/Contacts/addContacts.dart';
+import 'package:crime_curber/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 import 'package:crime_curber/Animation/bottomAnimation.dart';
 import 'package:crime_curber/main_screen.dart';
+import 'package:crime_curber/terms.dart';
+import 'package:crime_curber/privacy.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -37,41 +40,53 @@ class _LoginState extends State<Login> {
           height: height,
           width: width,
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                Color(0xff0D2C4F),
-                Color(0xff0D2C4F),
-                Color(0xff1D2631),
-                Color(0xff1D2631),
-              ])),
+              image: DecorationImage(
+                image: AssetImage("assets/images/welc_bg.png"),
+                fit: BoxFit.cover)),
           child: SafeArea(
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(
-                    height: height * 0.07,
+                  // SizedBox(
+                  //   height: height * 0.07,
+                  // ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "CRIME ",
+                        style: TextStyle(
+                          fontFamily: 'OpenSans',
+                          fontSize: 32,
+                          color: const Color(0xba101010),
+                        ),
+                      ),
+                      Text(
+                        "CURBER",
+                        style: TextStyle(
+                          fontFamily: 'RedHatDisplay',
+                          fontSize: 46,
+                          color: const Color(0xff000000),
+                          fontWeight: FontWeight.w700,
+                        ),
+                      )
+                    ],
                   ),
-                  Image.asset(
-                    'assets/alertlogo.png',
-                    height: height * 0.25,
-                  ),
-                  SizedBox(
-                    height: height * 0.1,
-                  ),
+                  // SizedBox(
+                  //   height: height * 0.1,
+                  // ),
                   phoneTextField(width, height),
-                  SizedBox(
-                    height: height * 0.02,
-                  ),
+                  // SizedBox(
+                  //   height: height * 0.02,
+                  // ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Icon(
                         Icons.info,
-                        color: Colors.blue,
+                        color: blue_button,
                         size: height * 0.03,
                       ),
                       SizedBox(
@@ -79,29 +94,85 @@ class _LoginState extends State<Login> {
                       ),
                       RichText(
                           text: TextSpan(children: [
-                        TextSpan(text: 'We will send'),
+                        TextSpan(text: 'We will send',
+                        style: TextStyle(
+                          color: dark_charcoal
+                        )),
                         TextSpan(
                           text: ' One Time Password',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold, color: dark_charcoal),
                         ),
-                        TextSpan(text: ' on \nthis mobile number')
+                        TextSpan(text: ' on \nthis mobile number',
+                            style: TextStyle(
+                                color: dark_charcoal
+                            ))
                       ])),
                     ],
                   ),
-                  SizedBox(
-                    height: height * 0.05,
-                  ),
+                  // SizedBox(
+                  //   height: height * 0.05,
+                  // ),
                   loginBtn(width, height),
+              Text(
+                "By continuing you indicate that you have",
+                style: TextStyle(
+                  fontFamily: "OpenSans",
+                ),
+              ),
+              Text(
+                "read and agree to Crime Curber's",
+                style: TextStyle(
+                  fontFamily: "OpenSans",
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return Terms();
+                        }));
+                      },
+                      child: Text(
+                        "Terms of Service",
+                        style: TextStyle(
+                            fontFamily: "OpenSans",
+                            fontWeight: FontWeight.bold,
+                            color: link_blue,
+                            decoration: TextDecoration.underline),
+                      )),
+                  Text(
+                    " and ",
+                    style: TextStyle(
+                      fontFamily: "OpenSans",
+                    ),
+                  ),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return PrivacyPolicy();
+                        }));
+                      },
+                      child: Text(
+                        "Privacy Policy",
+                        style: TextStyle(
+                            fontFamily: "OpenSans",
+                            fontWeight: FontWeight.bold,
+                            color: link_blue,
+                            decoration: TextDecoration.underline),
+                      )),
+                  Text("."),
                   SizedBox(
                     height: height * 0.17,
                   ),
                 ],
               ),
-            ),
+            ]),
           ),
         ),
       ),
-    );
+    ));
   }
 
   String validatePhone(String phone) {
@@ -270,18 +341,19 @@ class _LoginState extends State<Login> {
       child: TextField(
           controller: _controllerPhone,
           style: TextStyle(
-              color: Colors.white, fontSize: mediaQueryHeight * 0.023),
+              color: dark_charcoal,
+              fontSize: mediaQueryHeight * 0.023),
           keyboardType: TextInputType.phone,
           autofocus: false,
-          cursorColor: Colors.white,
+          cursorColor: dark_charcoal,
           maxLength: 10,
           decoration: InputDecoration(
               errorText: validatePhone(_controllerPhone.text),
-              counterStyle: TextStyle(color: Colors.white),
+              counterStyle: TextStyle(color:dark_charcoal),
               prefixIcon: WidgetAnimator(
                 Icon(
                   Icons.phone,
-                  color: Colors.white,
+                  color: dark_charcoal,
                   size: mediaQueryHeight * 0.03,
                 ),
               ),
@@ -289,12 +361,12 @@ class _LoginState extends State<Login> {
                 '+91',
                 style: TextStyle(fontSize: mediaQueryHeight * 0.023),
               ),
-              prefixStyle: TextStyle(color: Colors.white),
+              prefixStyle: TextStyle(color: dark_charcoal),
               labelText: 'Phone Number',
-              labelStyle: TextStyle(color: Colors.white),
-              hintStyle: TextStyle(color: Colors.white54),
+              labelStyle: TextStyle(color: dark_charcoal),
+              hintStyle: TextStyle(color: dark_charcoal),
               enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: dark_charcoal),
                   borderRadius: BorderRadius.circular(32)),
               errorBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.red),
@@ -303,7 +375,7 @@ class _LoginState extends State<Login> {
                   borderSide: BorderSide(color: Colors.red),
                   borderRadius: BorderRadius.circular(32)),
               focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: dark_charcoal),
                   borderRadius: BorderRadius.circular(32)))),
     );
   }
@@ -311,8 +383,14 @@ class _LoginState extends State<Login> {
   Widget loginBtn(double mediaQueryWidth, double mediaQueryHeight) => Container(
         width: mediaQueryWidth * 0.5,
         height: mediaQueryHeight * 0.07,
-        child: FlatButton(
-          splashColor: Colors.blue,
+        child: ElevatedButton(
+          //splashColor: Colors.blue,
+          style: ElevatedButton.styleFrom(
+            primary: blue_button,
+            elevation: 7,
+              shape: RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(30.0))
+          ),
           onPressed: () async {
             setState(() {
               _controllerPhone.text.isEmpty
@@ -326,11 +404,14 @@ class _LoginState extends State<Login> {
           child: WidgetAnimator(
             Text(
               "Login",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(
+                  fontFamily: "SourceSansPro",
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold),
             ),
           ),
-          color: Colors.white,
-          shape: StadiumBorder(),
+
+
         ),
       );
 }
