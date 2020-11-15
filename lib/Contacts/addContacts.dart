@@ -37,14 +37,14 @@ class _AddContactsState extends State<AddContacts> {
             duration: 1, backgroundColor: Colors.blue, backgroundRadius: 5);
       } else if (state == SmsMessageState.Sent) {
         return Toast.show('Alert Sent Successfully!', context,
-            duration: 3, backgroundColor: Colors.green, backgroundRadius: 5);
+            duration: 1, backgroundColor: Colors.green, backgroundRadius: 5);
       } else if (state == SmsMessageState.Fail) {
         return Toast.show(
             'Failure! Check your credits & Network Signals!', context,
-            duration: 5, backgroundColor: Colors.red, backgroundRadius: 5);
+            duration: 1, backgroundColor: Colors.red, backgroundRadius: 5);
       } else {
         return Toast.show('Failed to send SMS. Try Again!', context,
-            duration: 5, backgroundColor: Colors.red, backgroundRadius: 5);
+            duration: 1, backgroundColor: Colors.red, backgroundRadius: 5);
       }
     });
     sender.sendSms(msg);
@@ -191,49 +191,6 @@ class _AddContactsState extends State<AddContacts> {
     }
   }
 
-  Future<bool> _onWillPop() async {
-    return (await showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            title: new Text(
-              "Exit Application",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            content: new Text("Are You Sure?"),
-            actions: <Widget>[
-              // usually buttons at the bottom of the dialog
-              FlatButton(
-                shape: StadiumBorder(),
-                color: Colors.white,
-                child: new Text(
-                  "No",
-                  style: TextStyle(color: Colors.blue),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-              FlatButton(
-                shape: StadiumBorder(),
-                color: Colors.white,
-                child: new Text(
-                  "Yes",
-                  style: TextStyle(color: Colors.red),
-                ),
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => MainView(user: widget.user))
-                  );
-                },
-              ),
-            ],
-          ),
-        )) ??
-        false;
-  }
-
-
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
@@ -241,10 +198,7 @@ class _AddContactsState extends State<AddContacts> {
 
     DatabaseReference contactRef =
         database.reference().child(widget.user.phoneNumber);
-
-    return WillPopScope(
-      onWillPop: _onWillPop,
-      child: Scaffold(
+      return Scaffold(
           body: Stack(
         children: <Widget>[
           Container(
@@ -264,21 +218,6 @@ class _AddContactsState extends State<AddContacts> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  // Image.asset(
-                  //   'assets/alertlogo.png',
-                  //   height: height * 0.17,
-                  // ),
-                  // SizedBox(
-                  //   height: height * 0.02,
-                  // ),
-                  // Text(
-                  //   "Add Contacts to be Informed",
-                  //   style: TextStyle(
-                  //       color: Colors.white, fontSize: height * 0.022),
-                  // ),
-                  // SizedBox(
-                  //   height: height * 0.03,
-                  // ),
                   Container(
                     width: width * 0.7,
                     height: height * 0.26,
@@ -327,42 +266,14 @@ class _AddContactsState extends State<AddContacts> {
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      // Icon(
-                      //   Icons.warning,
-                      //   color: Colors.yellow,
-                      //   size: height * 0.025,
-                      // ),
-                      // SizedBox(
-                      //   width: width * 0.02,
-                      // ),
-                      // Text(
-                      //   'More Contacts take longer to send an Alert!',
-                      //   style: TextStyle(color: Colors.yellow),
-                      // ),
                     ],
                   ),
                 ],
               ),
             ),
           ),
-          Positioned(
-            top: height * 0.06,
-            right: width * 0.01,
-            child: FlatButton(
-              shape: CircleBorder(),
-              onPressed: () {
-                // _signOut();
-              },
-              child: Icon(
-                Icons.exit_to_app,
-                color: Colors.white,
-                size: height * 0.035,
-              ),
-            ),
-          ),
         ],
-      )),
-    );
+      ));
   }
 
   Widget contactTile(DataSnapshot res, int index, DatabaseReference reference) {

@@ -1,6 +1,8 @@
 import 'package:crime_curber/Camera/camera_screen.dart';
+import 'package:crime_curber/Camera/gallery.dart';
 import 'package:crime_curber/Contacts/addContacts.dart';
 import 'package:crime_curber/SOS/sos.dart';
+import 'package:crime_curber/shareLiveLocation/sharelive.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:crime_curber/constants.dart';
@@ -25,15 +27,15 @@ class _MainViewState extends State<MainView> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 0.0),
+      padding: EdgeInsets.symmetric(horizontal: 2.8),
         color: light_gray_bg,
         child: Column(
           children: <Widget>[
-            SizedBox(height: size.height * 0.085),
+            SizedBox(height: size.height * 0.068),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                SizedBox(width: size.width * 0.1),
+                SizedBox(width: size.width * 0.085),
                 Text(
                   "CRIME CURBER",
                   style: TextStyle(
@@ -51,8 +53,8 @@ class _MainViewState extends State<MainView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  height: 200,
-                  width: 120,
+                  height: 190,
+                  width: 110,
                   child: GestureDetector(
                     onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
                       return CameraScreen();
@@ -79,8 +81,8 @@ class _MainViewState extends State<MainView> {
                 Column(
                   children: <Widget>[
                     Container(
-                      height: 100,
-                      width: 110,
+                      height: 95,
+                      width: 100,
                       child: GestureDetector(
                         onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return HospitalBody();
@@ -104,8 +106,8 @@ class _MainViewState extends State<MainView> {
                       ),
                     ),
                     Container(
-                      height: 100,
-                      width: 110,
+                      height: 95,
+                      width: 100,
                       child: Card(
                           color: Colors.white,
                           elevation: 8,
@@ -128,8 +130,8 @@ class _MainViewState extends State<MainView> {
                 Column(
                   children: <Widget>[
                     Container(
-                      height: 100,
-                      width: 110,
+                      height: 95,
+                      width: 100,
                       child: GestureDetector(
                         onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
                           return PoliceBody();
@@ -154,8 +156,13 @@ class _MainViewState extends State<MainView> {
                       ),
                     ),
                     Container(
-                      height: 100,
-                      width: 110,
+                      height: 95,
+                      width: 100,
+                      child: GestureDetector(
+                        onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return HyperTrackQuickStart();
+                          }));
+                          },
                       child: Card(
                           color: Colors.white,
                           elevation: 8,
@@ -177,6 +184,7 @@ class _MainViewState extends State<MainView> {
                             ],
                           )),
                     )
+                    )
                   ],
                 )
               ],
@@ -189,7 +197,7 @@ class _MainViewState extends State<MainView> {
                   elevation: 7
               ),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SOS(user: widget.user))
+                Navigator.push(context, MaterialPageRoute(builder: (context) => AddContacts(user: widget.user))
                 );
               },
               child: Container(
@@ -236,7 +244,7 @@ class _MainViewState extends State<MainView> {
                           height: 50)
                       ),
                     ),
-                    SizedBox(height: size.height * 0.01),
+                    SizedBox(height: size.height * 0.008),
                     //SizedBox(width: size.width * 0.35),
                     Text("Add Contacts",
                         style: TextStyle(
@@ -256,7 +264,8 @@ class _MainViewState extends State<MainView> {
                         elevation: 7
                     ),
                     onPressed: () {
-                      
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Gallery())
+                      );
                     },
                     child: Container(
                         width: 63,
@@ -269,7 +278,7 @@ class _MainViewState extends State<MainView> {
                         )
                     ),
                   ),
-                  SizedBox(height: size.height * 0.01),
+                  SizedBox(height: size.height * 0.008),
                   Text("Upload",
                       style: TextStyle(
                           color: icon_gray,
@@ -299,7 +308,7 @@ class _MainViewState extends State<MainView> {
                               height: 40)
                       ),
                     ),
-                    SizedBox(height: size.height * 0.01),
+                    SizedBox(height: size.height * 0.008),
                     Text(
                       "Help",
                       style: TextStyle(

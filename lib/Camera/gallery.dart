@@ -4,6 +4,8 @@ import 'package:esys_flutter_share/esys_flutter_share.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:crime_curber/Camera/video_preview.dart';
+// import 'package:flutter_just_toast/flutter_just_toast.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 
@@ -64,7 +66,7 @@ class _GalleryState extends State<Gallery> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               IconButton(
-                icon: Icon(Icons.share),
+                icon: Icon(Icons.upload_rounded),
                 onPressed: () => _shareFile(),
               ),
             ],
@@ -83,6 +85,7 @@ class _GalleryState extends State<Gallery> {
       (extension == '.jpeg') ? 'image/jpeg' : '	video/mp4',
     );
   }
+
 //   Future uploadFile() async {    
 //    StorageReference storageReference = FirebaseStorage.instance    
 //        .ref()    
