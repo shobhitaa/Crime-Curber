@@ -1,4 +1,5 @@
 import 'package:contacts_service/contacts_service.dart';
+import 'package:crime_curber/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -93,25 +94,28 @@ class _PhoneBookState extends State<PhoneBook> {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
+        backgroundColor: blue_button,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back_rounded,
+          color: Colors.white),
           onPressed: () {
             // goBack();
           },
         ),
         title: TextField(
           textInputAction: TextInputAction.search,
-          style: TextStyle(color: Colors.black),
-          cursorColor: Colors.blue,
+          style: TextStyle(color: Colors.white),
+          cursorColor: blue_button,
           decoration: InputDecoration(
               focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue)),
+                  borderSide: BorderSide(color: blue_button)),
               enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue)),
-              prefixIcon: Icon(Icons.search,
-                  color: Colors.white, size: height * 0.03),
-              hintText: 'Search Name',
-              hintStyle: TextStyle(color: Colors.black)),
+                  borderSide: BorderSide(color: blue_button)),
+              //prefixIcon: Icon(Icons.search,
+                  //color: Colors.white, size: height * 0.03),
+              hintText: 'Search',
+              hintStyle: TextStyle(color: Colors.white,fontSize: 20,
+              fontFamily: "SourceSansPro")),
           onChanged: (string) {
             setState(() {
               filteredContacts = _contacts
@@ -122,9 +126,25 @@ class _PhoneBookState extends State<PhoneBook> {
             });
           },
         ),
+        actions: <Widget>[
+          Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: Icon(
+                  Icons.search,
+                  size: 26.0,
+                ),
+              )
+          ),
+        ],
       ),
       body: _contacts != null
           ? Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/welc_bg.png"),
+                fit: BoxFit.cover)),
               height: height,
               width: width,
               child: ListView.separated(
@@ -273,16 +293,17 @@ class _ItemsTileState extends State<ItemsTile> {
           checkingContactsLength();
         },
         leading: CircleAvatar(
-            backgroundColor: Color(0xffbe3a5a),
+            backgroundColor: blue_button,
             child: Text('${widget.c.displayName[0]}',
-                style: TextStyle(color: Colors.white)),
+                style: TextStyle(color: Colors.white,
+              fontFamily: "SourceSansPro")),
             radius: height * 0.025),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               widget.c.displayName ?? "",
-              style: TextStyle(color: Colors.black, fontSize: height * 0.022),
+              style: TextStyle(color: dark_charcoal, fontSize: height * 0.022),
             ),
             SizedBox(height: height * 0.01),
             Column(
@@ -290,13 +311,13 @@ class _ItemsTileState extends State<ItemsTile> {
                     .map(
                       (i) => Text(
                         i.value + "\t" ?? "",
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: dark_charcoal),
                       ),
                     )
                     .toList())
           ],
         ),
-        trailing: Text('Tap', style: TextStyle(color: Colors.black)),
+        trailing: Text('Tap', style: TextStyle(color: dark_charcoal)),
       ),
     );
   }

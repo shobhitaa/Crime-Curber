@@ -49,9 +49,9 @@ class _LoginState extends State<Login> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  // SizedBox(
-                  //   height: height * 0.07,
-                  // ),
+                  SizedBox(
+                    height: height * 0.07,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -74,13 +74,13 @@ class _LoginState extends State<Login> {
                       )
                     ],
                   ),
-                  // SizedBox(
-                  //   height: height * 0.1,
-                  // ),
+                  SizedBox(
+                    height: height * 0.25,
+                  ),
                   phoneTextField(width, height),
-                  // SizedBox(
-                  //   height: height * 0.02,
-                  // ),
+                  SizedBox(
+                    height: height * 0.01,
+                  ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -109,10 +109,13 @@ class _LoginState extends State<Login> {
                       ])),
                     ],
                   ),
-                  // SizedBox(
-                  //   height: height * 0.05,
-                  // ),
+                  SizedBox(
+                    height: height * 0.05,
+                  ),
                   loginBtn(width, height),
+                  SizedBox(
+                    height: height * 0.02,
+                  ),
                   Text(
                     "By continuing you indicate that you have",
                     style: TextStyle(
@@ -286,7 +289,7 @@ class _LoginState extends State<Login> {
                           borderRadius: BorderRadius.circular(5)),
                       child: Text("Confirm"),
                       textColor: Colors.white,
-                      color: Colors.lightBlue,
+                      color: dark_charcoal,
                       onPressed: () async {
                         setState(() {
                           _controllerCode.text.isEmpty

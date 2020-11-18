@@ -7,5 +7,6 @@ const light_gray_bg = Color(0xFFECECEC);
 const text_gray = Color(0xFF9D9D9D);
 const icon_gray = Color(0xFF6B6B6B);
 const card_gray = Color(0xFF989898);
+const tile = Color(0xFFE3BAB3);
 const blue_button = Color(0xFF3B4483);
 

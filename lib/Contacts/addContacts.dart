@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:crime_curber/Contacts/phoneBook.dart';
 import 'package:crime_curber/SOS/locationOnMap.dart';
+import 'package:crime_curber/constants.dart';
 import 'package:crime_curber/main_screen.dart';
 import 'package:crime_curber/model/uploadContact.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -133,7 +134,7 @@ class _AddContactsState extends State<AddContacts> {
   //             style: TextStyle(color: Colors.red),
   //           ),
   //           onPressed: () async {
-  //             await _auth.signOut().then((_) {
+  //             await auth.signOut().then(() {
   //               print('signing out user: ${widget.user}');
   //               Navigator.of(context).pushNamedAndRemoveUntil(
   //                   '/login', ModalRoute.withName('/addContacts'));
@@ -202,18 +203,12 @@ class _AddContactsState extends State<AddContacts> {
           body: Stack(
         children: <Widget>[
           Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/welc_bg.png"),
+                fit: BoxFit.cover)),
             height: height,
             width: width,
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                  Color(0xff0D2C4F),
-                  Color(0xff0D2C4F),
-                  Color(0xff1D2631),
-                  Color(0xff1D2631),
-                ])),
             child: SafeArea(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -290,7 +285,7 @@ class _AddContactsState extends State<AddContacts> {
           padding: EdgeInsets.symmetric(
               horizontal: width * 0.02, vertical: height * 0.005),
           shape: StadiumBorder(),
-          color: Colors.white.withOpacity(0.5),
+          color: blue_button.withOpacity(0.8),
           onPressed: () {
             reference.child(uploadContact.key).remove();
             Toast.show("Contact Removed!", context,
@@ -300,10 +295,10 @@ class _AddContactsState extends State<AddContacts> {
             children: <Widget>[
               CircleAvatar(
                 radius: height * 0.03,
-                backgroundColor: Colors.white,
+                backgroundColor: dark_charcoal,
                 child: Icon(
                   Icons.person,
-                  color: Colors.blue,
+                  color: Colors.white,
                   size: height * 0.045,
                 ),
               ),
@@ -324,7 +319,7 @@ class _AddContactsState extends State<AddContacts> {
                   ),
                   Text(
                     "Contact " + index.toString(),
-                    style: TextStyle(color: Colors.white54),
+                    style: TextStyle(color: Colors.white60),
                   ),
                 ],
               )
@@ -334,15 +329,15 @@ class _AddContactsState extends State<AddContacts> {
     );
   }
 
-  Widget addContactBtn(BuildContext context) {
+ Widget addContactBtn(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.80,
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.white54),
-          borderRadius: BorderRadius.circular(32)),
-      child: FlatButton(
-        splashColor: Color(0xff0D2C5F),
-        padding: EdgeInsets.all(10.0),
+          border: Border.all(color: dark_charcoal),
+          borderRadius: BorderRadius.circular(30)),
+      child: ElevatedButton(
+        //splashColor: Color(0xff0D2C5F),
+
         onPressed: () {
           Navigator.push(
               context,
@@ -351,7 +346,11 @@ class _AddContactsState extends State<AddContacts> {
                         user: widget.user,
                       )));
         },
-        shape: StadiumBorder(),
+        style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.all(15.0),
+            primary: blue_button,
+            shape: RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(30.0))),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -380,14 +379,20 @@ class _AddContactsState extends State<AddContacts> {
     return Container(
       width: MediaQuery.of(context).size.width * 0.80,
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.white54),
-          borderRadius: BorderRadius.circular(32)),
-      child: FlatButton(
-        splashColor: Color(0xff0D2C5F),
+          border: Border.all(color: dark_charcoal),
+          borderRadius: BorderRadius.circular(30)),
+      child: ElevatedButton(
+        //splashColor: Color(0xff0D2C5F),
         onPressed: () {
           sendAlertSMS();
         },
-        shape: StadiumBorder(),
+        style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.all(15.0),
+            primary: blue_button,
+            shape: RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(30.0))),
+
+
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -411,7 +416,6 @@ class _AddContactsState extends State<AddContacts> {
             )
           ],
         ),
-      ),
-    );
+      ));
   }
 }

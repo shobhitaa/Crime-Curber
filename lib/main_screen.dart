@@ -48,177 +48,8 @@ class _MainViewState extends State<MainView> {
                 ),
               ],
             ),
+
             SizedBox(height: size.height * 0.066),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  height: 190,
-                  width: 110,
-                  child: GestureDetector(
-                    onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return CameraScreen();
-                        }));},
-                  child: Card(
-                      color: Colors.white,
-                      elevation: 8,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Image.asset("assets/images/dslr-camera.png",
-                          width: 70,
-                          height: 70),
-                          Text("Record",
-                          style: TextStyle(
-                            color: card_gray,
-                            fontFamily: "OpenSans",
-                            fontSize: 17
-                          ))],
-                      )),
-                  ),
-                ),
-                Column(
-                  children: <Widget>[
-                    Container(
-                      height: 95,
-                      width: 100,
-                      child: GestureDetector(
-                        onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return HospitalBody();
-                        }));},
-                        child: Card(
-                            color: Colors.white,
-                            elevation: 8,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[Image.asset("assets/images/hospital.png",
-                              width: 40,
-                              height: 40),
-                                Text("Hospital",
-                                    style: TextStyle(
-                                        color: card_gray,
-                                        fontFamily: "OpenSans",
-                                        fontSize: 13
-                                    ))],
-                            )),
-                      ),
-                    ),
-                    Container(
-                      height: 95,
-                      width: 100,
-                      child: Card(
-                          color: Colors.white,
-                          elevation: 8,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[Image.asset("assets/images/sostimer.png",
-                                width: 40,
-                                height: 40),
-                              Text("SOS Timer",
-                                  style: TextStyle(
-                                      color: card_gray,
-                                      fontFamily: "OpenSans",
-                                      fontSize: 13
-                                  ))],
-                          )),
-                    )
-                  ],
-                ),
-                Column(
-                  children: <Widget>[
-                    Container(
-                      height: 95,
-                      width: 100,
-                      child: GestureDetector(
-                        onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return PoliceBody();
-                        }));
-                        },
-                        child: Card(
-                            color: Colors.white,
-                            elevation: 8,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[Image.asset("assets/images/police.png",
-                                  width: 40,
-                                  height: 40),
-                                Text("Police",
-                                    style: TextStyle(
-                                        color: card_gray,
-                                        fontFamily: "OpenSans",
-                                        fontSize: 13
-                                    ))],
-                            )),
-                      ),
-                    ),
-                    Container(
-                      height: 95,
-                      width: 100,
-                      child: GestureDetector(
-                        onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return HyperTrackQuickStart();
-                          }));
-                          },
-                      child: Card(
-                          color: Colors.white,
-                          elevation: 8,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[Image.asset("assets/images/location.png",
-                                width: 40,
-                                height: 40),
-                              Column(
-                                children: [
-                                  Text("Location",
-                                  style: TextStyle(
-                                      color: card_gray,
-                                      fontFamily: "OpenSans",
-                                      fontSize: 13
-                                  ))],
-                              )
-                            ],
-                          )),
-                    )
-                    )
-                  ],
-                )
-              ],
-            ),
-            SizedBox(height: size.height * 0.1),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  shape: CircleBorder(),
-                  //primary: _hasBeenPressed ? Colors.red : Colors.blueGrey,
-                  elevation: 7
-              ),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => AddContacts(user: widget.user))
-                );
-              },
-              child: Container(
-                width: 185,
-                height: 185,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(shape: BoxShape.circle,
-                gradient: new LinearGradient(
-                  colors: [
-                    Color(0xFF727272),
-                    Color(0xFF3D3D3D),
-                  ],
-                  begin: FractionalOffset.topCenter,
-                  end: FractionalOffset.bottomCenter,)),
-                child: Text(
-                  'SOS',
-                  style: TextStyle(fontSize: 44),
-                ),
-              ),
-            ),
-            SizedBox(height: size.height * 0.085),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
@@ -233,15 +64,15 @@ class _MainViewState extends State<MainView> {
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => AddContacts(user: widget.user))
                         );
-                        },
+                      },
                       child: Container(
                           width: 63,
                           height: 63,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(shape: BoxShape.circle),
                           child: Image.asset("assets/icons/contacts.png",
-                          width: 50,
-                          height: 50)
+                              width: 50,
+                              height: 50)
                       ),
                     ),
                     SizedBox(height: size.height * 0.008),
@@ -310,17 +141,188 @@ class _MainViewState extends State<MainView> {
                     ),
                     SizedBox(height: size.height * 0.008),
                     Text(
-                      "Help",
-                      style: TextStyle(
+                        "Help",
+                        style: TextStyle(
                           color: icon_gray,
                           fontFamily: "OpenSans",
                           fontSize: 12,
                           decoration: TextDecoration.none,
-                    ))
+                        ))
                   ],
                 )
               ],
-            )
+            ),
+            SizedBox(height: size.height * 0.09),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  shape: CircleBorder(),
+                  //primary: _hasBeenPressed ? Colors.red : Colors.blueGrey,
+                  elevation: 7
+              ),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => AddContacts(user: widget.user))
+                );
+              },
+              child: Container(
+                width: 185,
+                height: 185,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(shape: BoxShape.circle,
+                gradient: new LinearGradient(
+                  colors: [
+                    Color(0xFF727272),
+                    Color(0xFF3D3D3D),
+                  ],
+                  begin: FractionalOffset.topCenter,
+                  end: FractionalOffset.bottomCenter,)),
+                child: Text(
+                  'SOS',
+                  style: TextStyle(fontSize: 44),
+                ),
+              ),
+            ),
+            SizedBox(height: size.height * 0.085),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  height: 190,
+                  width: 110,
+                  child: GestureDetector(
+                    onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return CameraScreen();
+                    }));},
+                    child: Card(
+                        color: Colors.white,
+                        elevation: 8,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            Image.asset("assets/images/dslr-camera.png",
+                                width: 70,
+                                height: 70),
+                            Text("Record",
+                                style: TextStyle(
+                                    color: card_gray,
+                                    fontFamily: "OpenSans",
+                                    fontSize: 17
+                                ))],
+                        )),
+                  ),
+                ),
+                Column(
+                  children: <Widget>[
+                    Container(
+                      height: 95,
+                      width: 100,
+                      child: GestureDetector(
+                        onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return HospitalBody();
+                        }));},
+                        child: Card(
+                            color: Colors.white,
+                            elevation: 8,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[Image.asset("assets/images/hospital.png",
+                                  width: 40,
+                                  height: 40),
+                                Text("Hospital",
+                                    style: TextStyle(
+                                        color: card_gray,
+                                        fontFamily: "OpenSans",
+                                        fontSize: 13
+                                    ))],
+                            )),
+                      ),
+                    ),
+                    Container(
+                      height: 95,
+                      width: 100,
+                      child: Card(
+                          color: Colors.white,
+                          elevation: 8,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[Image.asset("assets/images/sostimer.png",
+                                width: 40,
+                                height: 40),
+                              Text("SOS Timer",
+                                  style: TextStyle(
+                                      color: card_gray,
+                                      fontFamily: "OpenSans",
+                                      fontSize: 13
+                                  ))],
+                          )),
+                    )
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    Container(
+                      height: 95,
+                      width: 100,
+                      child: GestureDetector(
+                        onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return PoliceBody();
+                        }));
+                        },
+                        child: Card(
+                            color: Colors.white,
+                            elevation: 8,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[Image.asset("assets/images/police.png",
+                                  width: 40,
+                                  height: 40),
+                                Text("Police",
+                                    style: TextStyle(
+                                        color: card_gray,
+                                        fontFamily: "OpenSans",
+                                        fontSize: 13
+                                    ))],
+                            )),
+                      ),
+                    ),
+                    Container(
+                        height: 95,
+                        width: 100,
+                        child: GestureDetector(
+                          onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
+                            return HyperTrackQuickStart();
+                          }));
+                          },
+                          child: Card(
+                              color: Colors.white,
+                              elevation: 8,
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[Image.asset("assets/images/location.png",
+                                    width: 40,
+                                    height: 40),
+                                  Column(
+                                    children: [
+                                      Text("Location",
+                                          style: TextStyle(
+                                              color: card_gray,
+                                              fontFamily: "OpenSans",
+                                              fontSize: 13
+                                          ))],
+                                  )
+                                ],
+                              )),
+                        )
+                    )
+                  ],
+                )
+              ],
+            ),
           ],
         ));
   }
