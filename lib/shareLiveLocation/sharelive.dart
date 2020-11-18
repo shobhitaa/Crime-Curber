@@ -95,6 +95,7 @@ class _HyperTrackQuickStartState extends State<HyperTrackQuickStart> {
 
     Size size = MediaQuery.of(context).size;
       return Scaffold(
+      resizeToAvoidBottomInset: false, 
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
@@ -104,7 +105,7 @@ class _HyperTrackQuickStartState extends State<HyperTrackQuickStart> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: size.height * 0.05),
+            SizedBox(height: size.height * 0.15),
             Text("Share Location",
                 style: TextStyle(
                     fontFamily: 'SourceSansPro',
@@ -163,7 +164,6 @@ class _HyperTrackQuickStartState extends State<HyperTrackQuickStart> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [ ElevatedButton(
-
             child: Container(
             height: 90,
               width: 90,

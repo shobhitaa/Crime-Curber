@@ -52,6 +52,7 @@ dependencies:
   geocoder: ^0.2.1
   location: ^2.3.5
   hypertrack_plugin:
+  flutter_shake_plugin:
   share:
   http:
   thumbnails:

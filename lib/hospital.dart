@@ -21,10 +21,16 @@ class _HospitalBodyState extends State<HospitalBody> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-        color: light_gray_bg,
+        decoration: BoxDecoration(
+          color: const Color(0xFFECECEC),
+          image: DecorationImage(
+            image: AssetImage("assets/images/welc_bg.png"),
+            fit: BoxFit.fill,
+          ),
+        ),
         child: Column(
           children: <Widget>[
-            SizedBox(height: size.height * 0.085),
+            SizedBox(height: size.height * 0.15),
             Text("Hospital",
                 style: TextStyle(
                     fontFamily: 'SourceSansPro',
@@ -32,23 +38,10 @@ class _HospitalBodyState extends State<HospitalBody> {
                     color: const Color(0xba101010),
                     decoration: TextDecoration.none,
                     fontWeight: FontWeight.bold)),
-            Text("Make a call to the police or",
-                style: TextStyle(
-                    fontFamily: "SourceSansPro",
-                    fontSize: 17,
-                    decoration: TextDecoration.none,
-                    color: card_gray,
-                    fontWeight: FontWeight.normal)),
-            Text("get directions to the nearest police station",
-                style: TextStyle(
-                    fontFamily: "SourceSansPro",
-                    fontSize: 17,
-                    decoration: TextDecoration.none,
-                    color: card_gray,
-                    fontWeight: FontWeight.normal)),
+            SizedBox(height: size.height * 0.35),
             Container(
               width: 250,
-              height: 100,
+              height: 80,
               child: ElevatedButton(
                   onPressed: () {
                     customLaunch('tel:102');
@@ -64,7 +57,8 @@ class _HospitalBodyState extends State<HospitalBody> {
                         Icons.call_rounded,
                         size: 32,
                       ),
-                      Text("Call",
+                      SizedBox(width: size.width * 0.11),
+                      Text("Place Call",
                           style: TextStyle(
                               fontFamily: "SourceSansPro",
                               fontSize: 30,
@@ -72,10 +66,18 @@ class _HospitalBodyState extends State<HospitalBody> {
                     ],
                   )),
             ),
-            SizedBox(height: size.height * 0.01),
+            SizedBox(height: size.height * 0.008),
+            Text("Call an Ambulance",
+                style: TextStyle(
+                    fontFamily: "SourceSansPro",
+                    fontSize: 17,
+                    decoration: TextDecoration.none,
+                    color: dark_charcoal,
+                    fontWeight: FontWeight.normal)),
+            SizedBox(height: size.height * 0.03),
             Container(
               width: 250,
-              height: 100,
+              height: 80,
               child: ElevatedButton(
                   onPressed: () => MapsLauncher.launchQuery('Hospital'),
                   style: ElevatedButton.styleFrom(
@@ -89,6 +91,7 @@ class _HospitalBodyState extends State<HospitalBody> {
                         Icons.location_pin,
                         size: 32,
                       ),
+                      SizedBox(width: size.width * 0.11),
                       Text("Directions",
                           style: TextStyle(
                               fontFamily: "SourceSansPro",
@@ -96,7 +99,15 @@ class _HospitalBodyState extends State<HospitalBody> {
                               fontWeight: FontWeight.bold)),
                     ],
                   )),
-            )
+            ),
+            SizedBox(height: size.height * 0.008),
+            Text("Directions to the nearest hospital",
+                style: TextStyle(
+                    fontFamily: "SourceSansPro",
+                    fontSize: 17,
+                    decoration: TextDecoration.none,
+                    color: dark_charcoal,
+                    fontWeight: FontWeight.normal)),
           ],
         ));
   }

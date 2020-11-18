@@ -177,7 +177,7 @@ class _MainViewState extends State<MainView> {
                   end: FractionalOffset.bottomCenter,)),
                 child: Text(
                   'SOS',
-                  style: TextStyle(fontSize: 44),
+                  style: TextStyle(fontSize: 50),
                 ),
               ),
             ),
