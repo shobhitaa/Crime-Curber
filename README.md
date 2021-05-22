@@ -1,10 +1,8 @@
 # Crime-Curber
 
-Crime Curber is an android application which gives a platform to its users for uploading visual evidences of crimes happening in the locality. 
+Crime Curber is a cross-platform application which gives a platform to its users for uploading visual evidences of crimes happening in the locality. 
 
 ## Motivation
-
-This android application was made in a 24 hour national level hackathon, Hack In India by Script Foundation under the theme 'Open Innovation'. 
 
 Crimes have always posed a threat to the smooth livelihood of the society. In this age of digitalization, everyone carries their mobile phones almost everywhere, so an application which might help people feel safer adds an extra layer of security.
 
@@ -24,5 +22,5 @@ Most of the times people don't know where to upload visual evidence of wrongdoin
 
 ## Installation
 
-Clone this repository into your local machine and run it on android studio. You can use android emulator as well as an android phone to run it.
+Clone this repository into your local machine and run it on android studio.
 
