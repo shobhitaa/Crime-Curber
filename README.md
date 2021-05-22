@@ -10,7 +10,7 @@ Crimes have always posed a threat to the smooth livelihood of the society. In th
 
 ## Tech stack used :-
 
-Programming Language Used: Java
+Programming Language Used: Dart
 
 Software development kits used: Android SDK, Google Maps SDK
 
